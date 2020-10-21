@@ -1,7 +1,7 @@
 let Step = ../../schemas/Step.dhall
 
 let Text/concatMapSep =
-      https://prelude.dhall-lang.org/v17.1.0/Text/concatMapSep.dhall sha256:c272aca80a607bc5963d1fcb38819e7e0d3e72ac4d02b1183b1afb6a91340840
+      https://prelude.dhall-lang.org/v17.1.0/Text/concatMapSep.dhall 
 
 in  λ(args : { path : Text, key : Text, hashFiles : List Text }) →
       let hashFilesArg =
