@@ -18,8 +18,8 @@ jobs:
         uses: "actions/upload-release-asset@v1.0.2"
         with:
           asset_content_type: application/octet-stream
-          asset_name: fake
-          asset_path: fake
+          asset_name: one
+          asset_path: one
           upload_url: "${{ steps.get_release_url.outputs.upload_url }}"
   uploadTwo:
     name: upload release binaries
@@ -40,8 +40,8 @@ jobs:
         uses: "actions/upload-release-asset@v1.0.2"
         with:
           asset_content_type: application/octet-stream
-          asset_name: fake
-          asset_path: fake
+          asset_name: two
+          asset_path: two
           upload_url: "${{ steps.get_release_url.outputs.upload_url }}"
 name: Upload release binary
 on:
