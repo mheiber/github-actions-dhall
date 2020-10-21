@@ -1,1 +1,1 @@
-{ types : Optional (List Text) }
+{ types : (List Text) }
