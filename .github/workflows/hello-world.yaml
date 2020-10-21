@@ -8,7 +8,9 @@ jobs:
       - id: make_sterlang-mac_FAKE
         name: make_sterlang-mac_FAKE
         run: "echo 'fake contents' >> fake"
-      - id: get_release_url
+      - env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        id: get_release_url
         name: Get release url
         uses: "bruceadams/get-release@v1.2.2"
       - env:
