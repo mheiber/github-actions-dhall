@@ -5,8 +5,7 @@ jobs:
     steps:
       - name: Checkout
         uses: "actions/checkout@v2"
-      - id: make fake one
-        name: make fake one
+      - name: make fake one
         run: "echo 'fake contents for one' >> one"
       - env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
@@ -28,8 +27,7 @@ jobs:
     steps:
       - name: Checkout
         uses: "actions/checkout@v2"
-      - id: make fake two
-        name: make fake two
+      - name: make fake two
         run: "echo 'fake contents for two' >> two"
       - env:
           GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
