@@ -1,14 +1,27 @@
 jobs:
-  build:
-    name: Greeting
+  uploadJob:
+    name: upload release binaries
     runs-on: ubuntu-latest
     steps:
-      - name: Hello World
-        uses: "actions/hello-world-javascript-action@v1"
+      - name: Checkout
+        uses: "actions/checkout@v2"
+      - id: make_sterlang-mac_FAKE
+        name: make_sterlang-mac_FAKE
+        run: "echo 'fake contents' >> fake"
+      - id: get_release_url
+        name: Get release url
+        uses: "bruceadams/get-release@v1.2.2"
+      - env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        name: upload release binary
+        uses: "actions/upload-release-asset@v1.0.2"
         with:
-          who-to-greet: Mona the Octocat
-      - name: "Echo the greeting's time"
-        run: "echo 'The time was ${{ steps.hello.outputs.time }}.'"
-name: Greeting
+          asset_content_type: application/octet-stream
+          asset_name: fake
+          asset_path: fake
+          upload_url: "${{ steps.get_release_url.outputs.upload_url }}"
+name: Upload release binary
 on:
-  push: {}
+  release:
+    types:
+      - created
